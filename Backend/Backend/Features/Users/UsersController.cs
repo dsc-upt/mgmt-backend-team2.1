@@ -1,4 +1,5 @@
 ﻿using Backend.Database;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -80,20 +81,92 @@ public class UsersController : ControllerBase
         );
     }
 
-    [HttpDelete]
-    public async Task<ActionResult<UserRequest>> DeleteById([FromRoute] string id)
+    
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<User>> DeleteById([FromRoute] string id)
     {
+        
         var user = await _dbContext.Users.FirstOrDefaultAsync(entity => entity.Id == id);
         if (user == null)
         {
             return NotFound("User not found");
         }
-
+        
         _dbContext.Users.Remove(user);
         await _dbContext.SaveChangesAsync();
 
         return Ok(user);
 
     }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<UserRequest>> UpdateById([FromRoute] string id, [FromBody]UserRequest userRequest)
+    {
+        var user = await _dbContext.Users.FirstOrDefaultAsync(entity => entity.Id == id);
+        if (user == null) 
+        {
+            return NotFound("Id not found");
+        }
     
+        user.FirstName = userRequest.FirstName;
+        user.LastName = userRequest.LastName;
+        user.Email = user.Email;
+        user.Roles = userRequest.Roles;
+        
+        await _dbContext.SaveChangesAsync();
+        return Ok(user);
+
+    }
+    
+    [HttpPost("role/{id}")]
+    public async Task<ActionResult<UserRequest>> AddRole([FromRoute] string id, [FromBody]string role)
+    {
+        var user = await _dbContext.Users.FirstOrDefaultAsync(entity => entity.Id == id);
+        if (user == null)
+        {
+            return NotFound("Id not found");
+        }
+        
+        user.Roles.Add(role);
+        user.Updated=DateTime.UtcNow;
+        await _dbContext.SaveChangesAsync();
+        
+        return Ok(new UserResponse
+        {
+            Id = user.Id,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Email = user.Email,
+            Roles = user.Roles,
+        });
+    }
+    
+    [HttpDelete("remove role/{id}")]
+    public async Task<ActionResult<UserRequest>> RemoveRole([FromRoute] string id, [FromBody]string role)
+    {
+        var user = await _dbContext.Users.FirstOrDefaultAsync(entity => entity.Id == id);
+        if (user == null)
+        {
+            return NotFound("Id not found");
+        }
+
+        var role1 = user.Roles.Find(element => element == role);
+        if (role1 == null)
+        {
+            return NotFound("Role not found");
+        }
+        
+        user.Roles.Remove(role);
+        user.Updated=DateTime.UtcNow;
+        await _dbContext.SaveChangesAsync();
+        
+        return Ok(new UserResponse
+        {
+            Id = user.Id,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Email = user.Email,
+            Roles = user.Roles,
+        });
+    }
 }
