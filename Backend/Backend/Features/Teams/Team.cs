@@ -14,4 +14,5 @@ public class Team : Entity
 
     [Required]
     public string GitHubLink { get; set; }
+    
 }

@@ -16,6 +16,7 @@ public class UsersController : ControllerBase
         _dbContext = dbContext;
     }
 
+    
     [HttpPost]
     public async Task<ActionResult<UserResponse>> Add(UserRequest userRequest)
     {
@@ -42,6 +43,7 @@ public class UsersController : ControllerBase
         });
     }
 
+    
     [HttpGet]
     public async Task<ActionResult<UserRequest>> Get()
     {
@@ -99,6 +101,7 @@ public class UsersController : ControllerBase
 
     }
 
+    
     [HttpPut("{id}")]
     public async Task<ActionResult<UserRequest>> UpdateById([FromRoute] string id, [FromBody]UserRequest userRequest)
     {
@@ -114,9 +117,11 @@ public class UsersController : ControllerBase
         user.Roles = userRequest.Roles;
         
         await _dbContext.SaveChangesAsync();
+        
         return Ok(user);
 
     }
+    
     
     [HttpPost("role/{id}")]
     public async Task<ActionResult<UserRequest>> AddRole([FromRoute] string id, [FromBody]string role)
@@ -128,7 +133,7 @@ public class UsersController : ControllerBase
         }
         
         user.Roles.Add(role);
-        user.Updated=DateTime.UtcNow;
+        user.Updated = DateTime.UtcNow;
         await _dbContext.SaveChangesAsync();
         
         return Ok(new UserResponse
@@ -141,7 +146,8 @@ public class UsersController : ControllerBase
         });
     }
     
-    [HttpDelete("remove role/{id}")]
+    
+    [HttpDelete("remove_role/{id}")]
     public async Task<ActionResult<UserRequest>> RemoveRole([FromRoute] string id, [FromBody]string role)
     {
         var user = await _dbContext.Users.FirstOrDefaultAsync(entity => entity.Id == id);
@@ -157,7 +163,7 @@ public class UsersController : ControllerBase
         }
         
         user.Roles.Remove(role);
-        user.Updated=DateTime.UtcNow;
+        user.Updated = DateTime.UtcNow;
         await _dbContext.SaveChangesAsync();
         
         return Ok(new UserResponse
@@ -169,4 +175,5 @@ public class UsersController : ControllerBase
             Roles = user.Roles,
         });
     }
+    
 }
