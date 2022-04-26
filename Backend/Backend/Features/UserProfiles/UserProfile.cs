@@ -1,12 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Backend.Base.Entities;
+using Backend.Features.Users;
+using Backend.Features.Teams;
 
 namespace Backend.Features.UserProfiles;
 
 public class UserProfile : Entity
 {
     //user
-    //teams
+    //public User User {get; set;}
+    //teams public
+    //public Team Team { get; set; }
+
     [Required] 
     public string FacebookLink { get; set; }
     

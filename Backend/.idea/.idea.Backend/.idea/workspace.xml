@@ -9,14 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0834c4c9-0fb6-46e1-ae26-f3d72f5ec51f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend/.idea/dataSources/615f470b-9aa1-4691-8149-0e4c47095425.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend/.idea/dataSources/615f470b-9aa1-4691-8149-0e4c47095425.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/Database/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Database/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/Features/Teams/Team.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Features/Teams/Team.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/Features/Teams/TeamRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Features/Teams/TeamRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/Features/Teams/TeamResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Features/Teams/TeamResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/Features/Users/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Features/Users/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Features/Clients/ClientsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Features/Clients/ClientsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Features/UserProfiles/UserProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Features/UserProfiles/UserProfile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +92,7 @@
       <workItem from="1649584557495" duration="14543000" />
       <workItem from="1650478188792" duration="5495000" />
       <workItem from="1650486713616" duration="33202000" />
+      <workItem from="1650994984280" duration="1611000" />
     </task>
     <servers />
   </component>
