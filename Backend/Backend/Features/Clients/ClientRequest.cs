@@ -9,7 +9,7 @@ public class ClientRequest
     public string Name { get; set; }
    
     [Required]
-    public User ContactPerson { get; set; }
+    public string ContactPersonId { get; set; }
     
     [Required]
     [EmailAddress]

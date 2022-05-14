@@ -9,6 +9,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0834c4c9-0fb6-46e1-ae26-f3d72f5ec51f" name="Changes" comment="">
+<<<<<<< Updated upstream
+=======
+      <change afterPath="$PROJECT_DIR$/Backend/Features/Clients/ClientRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/Features/Clients/ClientResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/Features/Clients/ClientsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/Features/Teams/TeamsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/Features/UserProfiles/UserProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/Migrations/20220421211259_Teams.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/Migrations/20220421211259_Teams.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/Migrations/20220424202622_Clients.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/Migrations/20220424202622_Clients.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend/.idea/dataSources/615f470b-9aa1-4691-8149-0e4c47095425.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend/.idea/dataSources/615f470b-9aa1-4691-8149-0e4c47095425.xml" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/Features/Clients/ClientsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Features/Clients/ClientsController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/Features/UserProfiles/UserProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Features/UserProfiles/UserProfile.cs" afterDir="false" />
@@ -91,8 +104,12 @@
       <updated>1649584543854</updated>
       <workItem from="1649584557495" duration="14543000" />
       <workItem from="1650478188792" duration="5495000" />
+<<<<<<< Updated upstream
       <workItem from="1650486713616" duration="33202000" />
       <workItem from="1650994984280" duration="1611000" />
+=======
+      <workItem from="1650486713616" duration="33643000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>

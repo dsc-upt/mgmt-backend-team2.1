@@ -37,16 +37,17 @@ public class TeamsController : ControllerBase
             
         };
 
-        //team.TeamLead.Id = Guid.NewGuid().ToString(); //exista deja user-ul
-        //team.TeamLead.Created = DateTime.UtcNow; 
+        /*
+        team.TeamLead.Id = Guid.NewGuid().ToString(); //exista deja user-ul
+        team.TeamLead.Created = DateTime.UtcNow; 
         team.TeamLead.Updated = DateTime.UtcNow;
+        */
         
         await _dbContext.Teams.AddAsync(team);
         await _dbContext.SaveChangesAsync();
         
         return Ok(new TeamResponse
         {
-            Id = team.Id,
             Name = team.Name,
             GitHubLink = team.GitHubLink,
             TeamLead = new UserResponse
@@ -57,12 +58,13 @@ public class TeamsController : ControllerBase
                 Email = team.TeamLead.Email,
                 Roles = team.TeamLead.Roles,
             },
+            Id = team.Id,
         });
     }
     
     
     [HttpGet]
-    public async Task<ActionResult<TeamRequest>> Get() //TeamResponse
+    public async Task<ActionResult<TeamRequest>> Get()
     {
         return Ok(
             await _dbContext.Teams.Select(
@@ -99,7 +101,6 @@ public class TeamsController : ControllerBase
             new TeamResponse
             {
                 Id = team.Id,
-                //TeamLead = team.TeamLead,
                 Name = team.Name,
                 GitHubLink = team.GitHubLink,
                 TeamLead = new UserResponse
@@ -175,7 +176,6 @@ public class TeamsController : ControllerBase
     
     [HttpPut("change_TeamLead/{id}/{teamLeadId}")] //schimbi team leader-ul cu un user existent deja
     public async Task<ActionResult<TeamRequest>> ChangeById([FromRoute] string id, [FromRoute] string teamLeadId)
-        //[FromBody] TeamRequest teamRequest)
     {
         var team = await _dbContext.Teams.FirstOrDefaultAsync(entity => entity.Id == id);
         if (team == null) 
@@ -190,16 +190,9 @@ public class TeamsController : ControllerBase
         }
         
         team.TeamLead = teamLead;
-        
-        /*
-        team.TeamLead.FirstName = teamLead.FirstName;
-        team.TeamLead.LastName = teamLead.LastName;
-        team.TeamLead.Email = teamLead.Email;
-        team.TeamLead.Roles = teamLead.Roles;
-        team.TeamLead.Updated = DateTime.UtcNow;
-        */
-        
-        await _dbContext.SaveChangesAsync();
+       //team.Updated = DateTime.UtcNow;
+
+       await _dbContext.SaveChangesAsync();
         
         return Ok(
             new TeamResponse

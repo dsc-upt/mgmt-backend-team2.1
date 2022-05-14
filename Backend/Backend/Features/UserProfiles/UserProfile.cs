@@ -7,20 +7,16 @@ namespace Backend.Features.UserProfiles;
 
 public class UserProfile : Entity
 {
-    //user
-    //public User User {get; set;}
-    //teams public
-    //public Team Team { get; set; }
-
-    [Required] 
+    public User User {get; set;}
+    
+    public List<Team> Team { get; set; }
+    
     public string FacebookLink { get; set; }
     
-    [Required] [Phone]
+    [Phone]
     public string Phone { get; set; }
     
-    [Required] 
     public DateOnly Birthday { get; set; }
     
-    [Required]
     public string Picture { get; set; } //???
 }

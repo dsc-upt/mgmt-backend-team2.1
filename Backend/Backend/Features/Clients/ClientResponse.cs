@@ -6,7 +6,7 @@ public class ClientResponse
 {
     public string Name { get; set; }
     
-    public User ContactPerson { get; set; }
+    public UserResponse ContactPerson { get; set; }
     
     public string Email { get; set; }
     
